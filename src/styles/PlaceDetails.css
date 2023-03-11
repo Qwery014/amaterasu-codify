@@ -1,0 +1,8 @@
+.place-details {
+  display: flex;
+}
+
+.place-info {
+  display: flex;
+  flex-direction: column;
+}
