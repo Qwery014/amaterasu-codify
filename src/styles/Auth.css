@@ -91,7 +91,7 @@
     cursor: pointer;
     height: 50px;
     text-transform: uppercase;
-    background: #6f73ee;
+    background: #006ba1;
     border: 0;
     width: 100%;
     border-radius: 14px;
@@ -100,7 +100,7 @@
   }
   
   .auth-btn:hover {
-    background-color: #5e0eae;
+    background-color: #003a92;
     color: #fff;
   }
   

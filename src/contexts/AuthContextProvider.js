@@ -23,7 +23,7 @@ const AuthContextProvider = ({ children }) => {
 
     const login = async (formData, email, navigate) => {
         try {
-            const res = await axios.post(`http://34.89.179.75/accounts/register/`, formData)
+            const res = await axios.post(`http://34.89.179.75/accounts/login/`, formData)
             localStorage.setItem('token', JSON.stringify(res.data))
             localStorage.setItem("email", email)
             setEmail(email)

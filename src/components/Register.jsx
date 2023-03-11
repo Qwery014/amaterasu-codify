@@ -94,7 +94,7 @@ export default function RegistrationPage() {
               autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              onFocus={() => setChangeColorProfile("#6F73EE")}
+              onFocus={() => setChangeColorProfile("#006ba1")}
               onBlur={() => setChangeColorProfile("#adadad")}
             />
           </div>
@@ -143,7 +143,7 @@ export default function RegistrationPage() {
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              onFocus={() => setChangeColorLock("#6F73EE")}
+              onFocus={() => setChangeColorLock("#006ba1")}
               onBlur={() => setChangeColorLock("#adadad")}
             />
           </div>
@@ -167,7 +167,7 @@ export default function RegistrationPage() {
               autoComplete="current-password"
               value={password2}
               onChange={(e) => setPassword2(e.target.value)}
-              onFocus={() => setChangeColorConfirm("#6F73EE")}
+              onFocus={() => setChangeColorConfirm("#006ba1")}
               onBlur={() => setChangeColorConfirm("#adadad")}
             />
           </div>
@@ -178,7 +178,10 @@ export default function RegistrationPage() {
         <button
           className="auth-btn"
           // onClick={() => handleLogin(email, password)}
-          onClick={handleSave}
+          onClick={()=>{
+            handleSave();
+            navigate('/login')
+          }}
 
         >
           Sign Up

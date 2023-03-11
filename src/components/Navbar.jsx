@@ -137,7 +137,7 @@ function ResponsiveAppBar() {
             {
               localStorage.getItem('username') ? (
                 <IconButton onClick={() => {
-                  handleOpenUserMenu();
+                  // handleOpenUserMenu();
                   navigate("/profile");
                 }} sx={{ p: 0 }} >
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
