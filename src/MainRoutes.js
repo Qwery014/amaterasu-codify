@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import Profilepage from "./pages/ProfilePage";
 
 
 const MainRoutes = () => {
@@ -9,6 +10,11 @@ const MainRoutes = () => {
       link: "/",
       element: <HomePage />,
       id: 1,
+    },
+    {
+      link: 'Profile',
+      element: <Profilepage/>,
+      id: 2
     },
   ]
 
