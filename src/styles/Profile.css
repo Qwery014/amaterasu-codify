@@ -1,0 +1,45 @@
+.userProfile{
+   max-width: 15%;
+}
+.info{
+    display: flex;
+    align-items: center;
+    /* margin-left: 5vw; */
+    justify-content: space-evenly;
+    width: 75%;
+    height: 45vh;
+    margin-top: 20px;
+    position: relative;
+    left: 12.5vw;
+    -webkit-box-shadow: -3px 9px 21px 24px rgba(34, 60, 80, 0.15);
+    -moz-box-shadow: -3px 9px 21px 24px rgba(34, 60, 80, 0.15);
+    box-shadow: -3px 9px 21px 24px rgba(34, 60, 80, 0.15);
+}
+.addOrganization{
+    position: absolute;
+    font-size: 50px;
+
+}
+
+@media screen and (max-width: 767px){
+.info{
+    height: 30vh;
+}
+}
+
+@media screen and (max-width: 550px){
+    .info{
+        height: 20vh;
+    }
+    }
+
+@media screen and (max-width: 425px){
+    .info{
+        height: 15vh;
+    }
+    }
+    
+    .css-8q1rm0{
+        width: 45%;
+        
+    }
