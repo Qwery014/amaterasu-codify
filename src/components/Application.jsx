@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
+import "../styles/Application.css"
 
 const style = {
   position: 'absolute',
@@ -66,10 +68,13 @@ export default function NestedModal() {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, width: 400 }}>
-          <h2 id="parent-modal-title">Text in a modal</h2>
-          <p id="parent-modal-description">
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </p>
+          <h2 id="parent-modal-title">Добавить новую организацию</h2>
+          <div className='input'>
+          <TextField id="outlined-basic" style={{margin:20}}label="Имя" variant="outlined" />
+          <TextField id="outlined-basic" style={{margin:20}} label="Описания" variant="outlined" />
+          <TextField id="outlined-basic" style={{margin:20}} label="местоположения" variant="outlined" />
+          </div>
+
          
         </Box>
       </Modal>
