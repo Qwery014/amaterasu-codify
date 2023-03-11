@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import PlaceDetailsPage from "./pages/PlaceDetailsPage";
 import SpecialistPage from "./pages/SpecialistPage";
+import Profilepage from "./pages/ProfilePage";
+
 
 
 const MainRoutes = () => {
@@ -15,6 +17,7 @@ const MainRoutes = () => {
       id: 1,
     },
     {
+
       link: "/catalog",
       element: <CatalogPage />,
       id: 2,
@@ -33,6 +36,11 @@ const MainRoutes = () => {
       link: "/login",
       element: <LoginPage />,
       id: 5,
+    },
+    {
+      link: 'Profile',
+      element: <Profilepage/>,
+      id: 6
     },
   ]
 
