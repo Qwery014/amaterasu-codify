@@ -3,13 +3,16 @@ import './App.css';
 import MainRoutes from './MainRoutes';
 import Navbar from "../src/components/Navbar"
 import AuthContextProvider from './contexts/AuthContextProvider';
+import PlaceContextProvider from './contexts/PlaceContextProvider';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
-        <Navbar />
-        <MainRoutes />
+        <PlaceContextProvider>
+          <Navbar />
+          <MainRoutes />
+        </PlaceContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   );

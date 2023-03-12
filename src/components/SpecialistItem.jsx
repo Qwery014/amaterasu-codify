@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { placeContext } from '../contexts/PlaceContextProvider';
 
 const SpecialistItem = () => {
+  const { place } = useContext(placeContext)
   const navigate = useNavigate();
-
+  console.log(place)
   return (
     <div>
       <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea onClick={() => navigate("/spec/id")}>
+        <CardActionArea onClick={() => navigate(`/spec/${place.id}`)}>
           <CardMedia
             component="img"
             height="140"

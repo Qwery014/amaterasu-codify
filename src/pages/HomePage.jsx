@@ -7,18 +7,17 @@ import "../styles/Homepage.css"
 
 
 const HomePage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+
+
   return (
-   
     <div className='HomePage'>
- <div className='HomeInfo'><p>Здравствуйте</p>
- <p>Добро пожаловать в наш сайт</p>
- <Button variant="contained" onClick={()=>navigate('profile')}>Наш каталог</Button>
- 
- </div>
-
-
-        </div>
+      <div className='HomeInfo'><p>Здравствуйте</p>
+        <p>Добро пожаловать на наш сайт</p>
+        <Button variant="contained" onClick={() => navigate('/catalog')}>Каталог</Button>
+      </div>
+    </div>
   );
 };
 

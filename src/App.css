@@ -15,12 +15,14 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background-color: #d1d6ff;
 }
 
 .container {
   width: 90%;
   margin: 0 auto;
   max-width: 1440px;
+  padding-top: 20px;
 }
 
 h1,

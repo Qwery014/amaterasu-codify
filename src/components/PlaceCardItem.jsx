@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const PlaceCardItem = () => {
+const PlaceCardItem = ({ place }) => {
 
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const PlaceCardItem = () => {
   return (
     <div>
       <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea onClick={() => navigate("/place/id")}>
+        <CardActionArea onClick={() => navigate(`/place/${place.id}`)}>
           <CardMedia
             component="img"
             height="140"
@@ -23,11 +23,10 @@ const PlaceCardItem = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              {place.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              {place.desciption}
             </Typography>
           </CardContent>
         </CardActionArea>

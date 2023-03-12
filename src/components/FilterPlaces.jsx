@@ -4,8 +4,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import "../styles/Filter.css"
+import { IconButton } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useNavigate } from 'react-router-dom';
 
 const FilterPlaces = () => {
+  const navigate = useNavigate();
 
   const [age, setAge] = React.useState('');
 
@@ -33,6 +37,9 @@ const FilterPlaces = () => {
           <MenuItem value={22}>Twenty one and a half</MenuItem>
         </Select>
       </FormControl>
+      <IconButton onClick={() => navigate("/add-new-place")}>
+        <AddCircleIcon />
+      </IconButton>
     </div>
   );
 };
