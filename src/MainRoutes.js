@@ -2,10 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CatalogPage from "./pages/CatalogPage";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
 import PlaceDetailsPage from "./pages/PlaceDetailsPage";
 import SpecialistPage from "./pages/SpecialistPage";
 import Profilepage from "./pages/ProfilePage";
+import AddPlacePage from "./pages/AddPlacePage";
 
 
 
@@ -17,7 +17,6 @@ const MainRoutes = () => {
       id: 1,
     },
     {
-
       link: "/catalog",
       element: <CatalogPage />,
       id: 2,
@@ -33,13 +32,13 @@ const MainRoutes = () => {
       id: 4,
     },
     {
-      link: "/login",
-      element: <LoginPage />,
-      id: 5,
+      link: '/profile',
+      element: <Profilepage />,
+      id: 5
     },
     {
-      link: 'Profile',
-      element: <Profilepage/>,
+      link: '/add-new-place',
+      element: <AddPlacePage />,
       id: 6
     },
   ]

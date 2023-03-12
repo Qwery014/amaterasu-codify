@@ -1,12 +1,9 @@
-.HomePage{
-    background:  center / cover no-repeat url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8A4eHwnTOaTgww7G1si98bbqMLpQjxLVlZk-IsLiecIQM4xGXwfVtaNmMddrstauTaFk&usqp=CAU");
-    
-    height: 88vh;
-   
-    
+.HomePage {
+    background: center / cover no-repeat url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8A4eHwnTOaTgww7G1si98bbqMLpQjxLVlZk-IsLiecIQM4xGXwfVtaNmMddrstauTaFk&usqp=CAU");
+    height: 100vh;
 }
 
-.HomeInfo{
+.HomeInfo {
     text-align: center;
     font-size: 42px;
     color: #ffff;
