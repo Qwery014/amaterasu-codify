@@ -188,9 +188,9 @@ export default function RegistrationPage() {
         </button>
         <div className="auth-another">
           <p className="auth-another__hint">Or Sign In</p>
-          {/* <button onClick={() => navigate("/login")} className="auth-link">
+          <button onClick={() => navigate("/login")} className="auth-link">
             SIGN IN
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
