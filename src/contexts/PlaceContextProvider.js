@@ -72,7 +72,7 @@ const PlaceContextProvider = ({ children }) => {
     try {
       const config = {
         headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")) || "",
+          Authorization: JSON.parse(localStorage.getItem("token")).access || "",
         }
       }
 
