@@ -2,12 +2,15 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import MainRoutes from './MainRoutes';
 import Navbar from "../src/components/Navbar"
+import AuthContextProvider from './contexts/AuthContextProvider';
 
 function App() {
   return (
     <BrowserRouter>
-    <Navbar/>
-      <MainRoutes />
+      <AuthContextProvider>
+        <Navbar />
+        <MainRoutes />
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }

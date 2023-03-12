@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import PlaceDetailsPage from "./pages/PlaceDetailsPage";
 import SpecialistPage from "./pages/SpecialistPage";
 import Profilepage from "./pages/ProfilePage";
+import RegisterPage from "./pages/RegisterPage"
 
 
 
@@ -38,9 +39,14 @@ const MainRoutes = () => {
       id: 5,
     },
     {
-      link: 'Profile',
+      link: '/profile',
       element: <Profilepage/>,
       id: 6
+    },
+    {
+      link: '/register',
+      element: <RegisterPage/>,
+      id: 7
     },
   ]
 

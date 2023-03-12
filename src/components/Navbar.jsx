@@ -18,7 +18,7 @@ const pages = ['Главная', 'Каталог'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,6 +36,11 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  // localStorage.getItem('username') ? (
+
+  // ) : (
+  // )
 
   return (
     <AppBar position="static">
@@ -127,12 +132,23 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }} onClick={()=>navigate('Profile')}>
-            
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-        
+          <Box sx={{ flexGrow: 0 }} >
+
+            {
+              localStorage.getItem('username') ? (
+                <IconButton onClick={() => {
+                  // handleOpenUserMenu();
+                  navigate("/profile");
+                }} sx={{ p: 0 }} >
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              ) : (
+                <Button variant="text" sx={{ color: "#FFF" }} onClick={() => navigate('/register')}>
+                  Войти
+                </Button>
+              )
+            }
+
           </Box>
         </Toolbar>
       </Container>
