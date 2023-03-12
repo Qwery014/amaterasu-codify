@@ -1,0 +1,10 @@
+.place-details {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.place-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
