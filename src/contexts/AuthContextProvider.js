@@ -21,14 +21,14 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
-    const login = async (formData, email, navigate) => {
+    const login = async (formData, email) => {
         try {
             const res = await axios.post(`http://34.89.179.75/accounts/login/`, formData)
             localStorage.setItem('token', JSON.stringify(res.data))
             localStorage.setItem("email", email)
             setEmail(email)
             navigate('/')
-            console.log(res)
+            console.log(res.data)
         }
         catch (error) {
             console.log(error.response.data.detail)

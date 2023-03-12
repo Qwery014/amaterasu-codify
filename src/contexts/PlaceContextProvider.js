@@ -9,7 +9,11 @@ const API = "http://34.89.179.75/";
 
 const INIT_STATE = {
   places: [],
-  place: []
+  place: [],
+  users: [],
+  profs: [],
+  specs: [],
+  spec: []
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -24,6 +28,26 @@ function reducer(state = INIT_STATE, action) {
         ...state,
         place: action.payload,
       };
+    case "GET_USERS":
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case "GET_PROFS":
+      return {
+        ...state,
+        profs: action.payload,
+      };
+    case "GET_SPECS":
+      return {
+        ...state,
+        specs: action.payload,
+      };
+    case "GET_SPEC":
+      return {
+        ...state,
+        spec: action.payload,
+      };
     default:
       return state;
   }
@@ -33,8 +57,8 @@ const PlaceContextProvider = ({ children }) => {
 
   async function getOrganizations() {
     try {
-      const { data } = await axios(`${API}organization/`);
-
+      const { data } = await axios(`${API}organization/${window.location.search}/`);
+      console.log(data)
       dispatch({
         type: "GET_PLACES",
         payload: data,
@@ -48,7 +72,7 @@ const PlaceContextProvider = ({ children }) => {
     try {
       const config = {
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4NTY3MDQwLCJpYXQiOjE2Nzg1NTk4NDAsImp0aSI6ImE5NDYxYjY4ZTI4YjRkYTM4ZjkyMzk0ZTA3NzgxMGI1IiwidXNlcl9pZCI6NX0.UXqGRU__YH9hN7UUkB5nY5hGXkdN04vPx8BdtUmJbRA",
+          Authorization: JSON.parse(localStorage.getItem("token")) || "",
         }
       }
 
@@ -62,16 +86,103 @@ const PlaceContextProvider = ({ children }) => {
 
   async function getOrganization(id) {
     try {
-      const { data } = `${API}organization/${id}`;
-      console.log(data)
+      const { data } = await axios(`${API}organization/${id}`);
+      console.log(data);
 
       dispatch({
         type: "GET_PLACE",
         payload: data,
       })
-
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  async function addSpecialisation(form) {
+    try {
+      const { data } = await axios.post(`${API}specialization/`, form);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function addSpecialist(form) {
+    try {
+      const { data } = await axios.post(`${API}professional/`, form);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function usersList() {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token")).access}` || "",
+        }
+      }
+
+      const { data } = await axios(`${API}accounts/list/`, config);
+      console.log(data);
+
+      dispatch({
+        type: "GET_USERS",
+        payload: data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function profList() {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token")).access}` || "",
+        }
+      }
+
+      const { data } = await axios(`${API}specialization/`, config);
+      console.log(data);
+
+      dispatch({
+        type: "GET_PROFS",
+        payload: data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function specList() {
+    try {
+
+      const { data } = await axios(`${API}professional/`);
+      console.log(data);
+
+      dispatch({
+        type: "GET_SPECS",
+        payload: data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getSpec(id) {
+    try {
+
+      const { data } = await axios(`${API}professional/${id}/`);
+      console.log(data);
+
+      dispatch({
+        type: "GET_SPEC",
+        payload: data
+      })
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -79,8 +190,20 @@ const PlaceContextProvider = ({ children }) => {
     <placeContext.Provider value={{
       places: state.places,
       place: state.place,
+      users: state.users,
+      profs: state.profs,
+      specs: state.specs,
+      spec: state.spec,
+
       addOrganization,
-      getOrganizations
+      getOrganizations,
+      getOrganization,
+      addSpecialisation,
+      addSpecialist,
+      usersList,
+      profList,
+      specList,
+      getSpec
     }}>
       {children}
     </placeContext.Provider>

@@ -1,11 +1,12 @@
 .userProfile{
    max-width: 15%;
+
 }
 .info{
     display: flex;
     align-items: center;
-    /* margin-left: 5vw; */
-    justify-content: space-evenly;
+    padding: 10px 30px;
+    justify-content: space-between;
     width: 75%;
     height: 45vh;
     margin-top: 20px;

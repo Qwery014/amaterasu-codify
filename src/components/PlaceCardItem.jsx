@@ -13,20 +13,14 @@ const PlaceCardItem = ({ place }) => {
 
   return (
     <div>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ width: 345 }}>
         <CardActionArea onClick={() => navigate(`/place/${place.id}`)}>
-          <CardMedia
-            component="img"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            alt="green iguana"
-          />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {place.name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {place.desciption}
+            <Typography variant="p" color="text.secondary">
+              {place.description}
             </Typography>
           </CardContent>
         </CardActionArea>

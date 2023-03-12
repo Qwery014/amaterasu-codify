@@ -2,8 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import { IconButton, TextField } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import "../styles/Application.css"
+import "../styles/Profile.css"
 
 const style = {
   position: 'absolute',
@@ -19,36 +21,6 @@ const style = {
   pb: 3,
 };
 
-function ChildModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <React.Fragment>
-      <Button onClick={handleOpen}>Open Child Modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
-      >
-        <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
-        </Box>
-      </Modal>
-    </React.Fragment>
-  );
-}
-
 export default function NestedModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
@@ -60,24 +32,31 @@ export default function NestedModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="parent-modal-title"
-        aria-describedby="parent-modal-description"
-      >
-        <Box sx={{ ...style, width: 400 }}>
-          <h2 id="parent-modal-title">Добавить новую организацию</h2>
-          <div className='input'>
-          <TextField id="outlined-basic" style={{margin:20}}label="Имя" variant="outlined" />
-          <TextField id="outlined-basic" style={{margin:20}} label="Описания" variant="outlined" />
-          <TextField id="outlined-basic" style={{margin:20}} label="местоположения" variant="outlined" />
-          </div>
+      <IconButton onClick={handleOpen}>
+        <AddCircleIcon />
+      </IconButton>
 
-         
-        </Box>
-      </Modal>
+      <div className='addOrganization'>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="parent-modal-title"
+          aria-describedby="parent-modal-description"
+        >
+          <Box sx={{ ...style, width: 700 }}>
+            <h2 id="parent-modal-title">Добавить новую организацию</h2>
+            <div className='input'>
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="Имя" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="Описания" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="местоположения" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="longtitude" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="latitude" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="website" variant="outlined" />
+              <TextField id="outlined-basic" style={{ margin: 5, width: 300 }} label="phone_number" variant="outlined" />
+            </div>
+          </Box>
+        </Modal>
+      </div>
     </div>
   );
 }

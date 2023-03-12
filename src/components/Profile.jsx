@@ -5,7 +5,9 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import "../styles/Application.css"
-import "../styles/Profile.css"
+import "../styles/Profile.css";
+import Application from "./Application"
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -14,7 +16,7 @@ const style = {
     width: '100%',
     bgcolor: 'background.paper',
     // border: '1px solid #000',
-    borderRadius: 3, 
+    borderRadius: 3,
     boxShadow: 24,
     pt: 2,
     px: 4,
@@ -33,7 +35,7 @@ const Profile = () => {
     return (
         <div>
             <div className='info'>
-                <img src={userProfile} alt="" className="userProfile" onClick={handleOpen} />
+                <img src={userProfile} alt="" className="userProfile" />
                 <div className='email'>
                     {
                         localStorage.getItem('email')
@@ -50,20 +52,18 @@ const Profile = () => {
                         <Box sx={{ ...style, width: 400 }}>
                             <h2 id="parent-modal-title">Добавить новую организацию</h2>
                             <div className='input'>
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="Имя" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="Описания" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="местоположения" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="longtitude" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="latitude" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="website" variant="outlined" />
-                                <TextField id="outlined-basic" style={{ margin: 15, width: 300}} label="phone_number" variant="outlined" />
-
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="Имя" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="Описания" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="местоположения" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="longtitude" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="latitude" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="website" variant="outlined" />
+                                <TextField id="outlined-basic" style={{ margin: 15, width: 300 }} label="phone_number" variant="outlined" />
                             </div>
-
-
                         </Box>
                     </Modal>
                 </div>
+            <Application />
             </div>
         </div>
     );

@@ -131,7 +131,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }} >
 
             {
-              localStorage.getItem('username') ? (
+              localStorage.getItem('email') ? (
                 <IconButton onClick={() => {
                   // handleOpenUserMenu();
                   navigate("/profile");

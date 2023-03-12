@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import FilterPlaces from '../components/FilterPlaces';
 import PlaceCardList from '../components/PlaceCardList';
 import { placeContext } from '../contexts/PlaceContextProvider';
@@ -8,16 +9,31 @@ const CatalogPage = () => {
 
   const { getOrganizations } = useContext(placeContext);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+
+  console.log(search);
+
   useEffect(() => {
-    getOrganizations();
-  }, [])
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+  useEffect(() => {
+    getOrganizations()
+
+  }, [searchParams]);
+
+
+
 
   return (
     <div>
       <div className="container">
-        <input type="text" placeholder='Поиск' className='search-input' />
+        <input type="text" placeholder='Поиск' className='search-input' value={search} onInput={(e) => setSearch(e.target.value)} />
         <FilterPlaces />
-        <PlaceCardList />
+        <PlaceCardList search={search} />
       </div>
     </div>
   );

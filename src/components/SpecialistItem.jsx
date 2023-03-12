@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,27 +7,28 @@ import { CardActionArea } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { placeContext } from '../contexts/PlaceContextProvider';
 
-const SpecialistItem = () => {
-  const { place } = useContext(placeContext)
+const SpecialistItem = ({ item }) => {
+  const { profList, profs, specList } = useContext(placeContext)
+  useEffect(() => {
+    profList();
+    specList()
+  }, [])
   const navigate = useNavigate();
-  console.log(place)
+  console.log(profs[item.specialization - 1].name)
+
   return (
     <div>
       <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea onClick={() => navigate(`/spec/${place.id}`)}>
-          <CardMedia
-            component="img"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            alt="green iguana"
-          />
+        <CardActionArea onClick={() => navigate(`/spec/${item.id}`)}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              {item.first_name}  {item.last_name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica.
+              {profs[item.specialization - 1].name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {item.information}
             </Typography>
           </CardContent>
         </CardActionArea>

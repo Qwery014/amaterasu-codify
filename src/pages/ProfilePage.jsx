@@ -6,7 +6,6 @@ const Profilepage = (props) => {
     return (
         <div>
             <Profile/>
-            <Application/>
         </div>
     );
 };
